@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Recommended Artists {% endblock %}</h1>
+{% for message in messages %}
+<div class='message'>
+    <iframe style="border-radius:12px" id=artistIframe width="100%" height="352" frameBorder="0" allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+    </iframe>
+    <script>
+        document.getElementById("artistIframe").src =
+            "https://open.spotify.com/embed/artist/" + { message['content'] } + "?utm_source=generator";
+    </script>
+</div>
+{% endfor %}
+{% endblock %}
