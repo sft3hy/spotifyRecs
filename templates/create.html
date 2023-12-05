@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Add a New Message {% endblock %}</h1>
+<form method="post">
+    <label for="content">Artists</label>
+    <br>
+    <textarea name="content" placeholder="Input 1-5 artists separated by commas to get your deep dive!" rows="15"
+        cols="30">{{ request.form['content'] }}</textarea>
+    <br>
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}
