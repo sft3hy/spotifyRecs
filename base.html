@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} - Deep Dive</title>
+    <style>
+        .message {
+            color: #076924;
+            padding: 10px;
+            margin: 5px;
+            background-color: #ecd8dc;
+        }
+
+        nav a {
+            color: #076924;
+            font-size: 3em;
+            margin-left: 50px;
+            text-decoration: none;
+        }
+
+        .alert {
+            padding: 20px;
+            margin: 5px;
+            color: #076924;
+            background-color: #d5adb6;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Deep Dive</a>
+        <a href="{{ url_for('create') }}">Input Artists</a>
+        <a href="#">About</a>
+    </nav>
+    <hr>
+    <div class="content">
+        {% for message in get_flashed_messages() %}
+        <div class="alert">{{ message }}</div>
+        {% endfor %}
+        {% block content %} {% endblock %}
+    </div>
+</body>
+
+</html>
